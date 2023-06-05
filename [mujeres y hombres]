@@ -1,0 +1,144 @@
+Algoritmo CalcularPromedios
+	Definir numEstudiantes,i Como Entero
+	Definir nombre Como Caracter
+	Definir sexo Como Caracter
+	Definir promedio Como Real
+	Definir promedioHombres,promedioMujeres,promedioGeneral Como Real
+	Definir sumaHombres,sumaMujeres Como Real
+	Definir contHombres,contMujeres Como Entero
+	Definir promedioMasAltoHombres,promedioMasAltoMujeres Como Real
+	Definir cantidadHombres,cantidadMujeres Como Entero
+	Definir respuesta Como Caracter
+	respuesta <- 's'
+	promedioGeneral <- 0
+	sumaHombres <- 0
+	sumaMujeres <- 0
+	contHombres <- 0
+	contMujeres <- 0
+	promedioMasAltoHombres <- 0
+	promedioMasAltoMujeres <- 0
+	cantidadHombres <- 0
+	cantidadMujeres <- 0
+	Mientras respuesta='s' O respuesta='S' Hacer
+		Escribir 'Ingrese el número de estudiantes: '
+		Leer numEstudiantes
+		i <- 1
+		Mientras i<=numEstudiantes Hacer
+			Escribir 'Estudiante ',i
+			Escribir 'Ingrese el nombre del estudiante: '
+			Leer nombre
+			Escribir 'Ingrese el sexo del estudiante (M/F): '
+			Leer sexo
+			Escribir 'Ingrese el promedio del estudiante: '
+			Leer promedio
+			promedioGeneral <- promedioGeneral+promedio
+			Si sexo='M' O sexo='m' Entonces
+				sumaHombres <- sumaHombres+promedio
+				contHombres <- contHombres+1
+				Si promedio>promedioMasAltoHombres Entonces
+					promedioMasAltoHombres <- promedio
+				FinSi
+				cantidadHombres <- cantidadHombres+1
+			FinSi
+			Si sexo='F' O sexo='f' Entonces
+				sumaMujeres <- sumaMujeres+promedio
+				contMujeres <- contMujeres+1
+				Si promedio>promedioMasAltoMujeres Entonces
+					promedioMasAltoMujeres <- promedio
+				FinSi
+				cantidadMujeres <- cantidadMujeres+1
+			FinSi
+			i <- i+1
+		FinMientras
+		Escribir 'Promedio general: ',promedioGeneral/numEstudiantes
+		Escribir 'Promedio hombres: ',sumaHombres/contHombres
+		Escribir 'Promedio mujeres: ',sumaMujeres/contMujeres
+		Escribir 'Promedio más alto entre hombres: ',promedioMasAltoHombres
+		Escribir 'Promedio más alto entre mujeres: ',promedioMasAltoMujeres
+		Escribir 'Cantidad de hombres: ',cantidadHombres
+		Escribir 'Cantidad de mujeres: ',cantidadMujeres
+		Escribir '¿Desea calcular sobre otro grupo? (s/n): '
+		Leer respuesta
+	FinMientras
+	Escribir 'Fin del programa.'
+FinAlgoritmo
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int numEstudiantes = 0;
+    int i = 1;
+    char nombre[100];
+    char sexo;
+    float promedio;
+    float promedioHombres = 0;
+    float promedioMujeres = 0;
+    float promedioGeneral = 0;
+    float sumaHombres = 0;
+    float sumaMujeres = 0;
+    int contHombres = 0;
+    int contMujeres = 0;
+    float mayorPromedioHombres = 0;
+    float mayorPromedioMujeres = 0;
+    char respuesta = 's';
+
+    while (respuesta == 's' || respuesta == 'S') {
+        printf("Ingrese el número de estudiantes: ");
+        scanf("%d", &numEstudiantes);
+
+        i = 1;
+        while (i <= numEstudiantes) {
+            printf("Estudiante %d\n", i);
+
+            printf("Ingrese el nombre del estudiante: ");
+            scanf(" %[^\n]s", nombre);
+
+            printf("Ingrese el sexo del estudiante (M/F): ");
+            scanf(" %c", &sexo);
+
+            printf("Ingrese el promedio del estudiante: ");
+            scanf("%f", &promedio);
+
+            promedioGeneral += promedio;
+
+            if (sexo == 'M' || sexo == 'm') {
+                sumaHombres += promedio;
+                contHombres++;
+
+                if (promedio > mayorPromedioHombres) {
+                    mayorPromedioHombres = promedio;
+                }
+            } else if (sexo == 'F' || sexo == 'f') {
+                sumaMujeres += promedio;
+                contMujeres++;
+
+                if (promedio > mayorPromedioMujeres) {
+                    mayorPromedioMujeres = promedio;
+                }
+            }
+
+            i++;
+        }
+
+        printf("Promedio general: %.2f\n", promedioGeneral / numEstudiantes);
+        printf("Promedio hombres: %.2f\n", sumaHombres / contHombres);
+        printf("Promedio mujeres: %.2f\n", sumaMujeres / contMujeres);
+        printf("Mayor promedio entre hombres: %.2f\n", mayorPromedioHombres);
+        printf("Mayor promedio entre mujeres: %.2f\n", mayorPromedioMujeres);
+
+        printf("¿Desea calcular sobre otro grupo? (s/n): ");
+        scanf(" %c", &respuesta);
+    }
+
+    printf("Fin del programa.\n");
+
+    return 0;
+}
