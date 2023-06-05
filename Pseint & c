@@ -1,0 +1,697 @@
+SALDO CAJERO
+
+C :
+
+#include<stdio.h>
+
+int main() {
+
+	float montoretiro;	float saldo;
+
+	saldo = 1000.0;
+
+	printf("Bienvenido al Cajero Automatico\n");
+
+	while (saldo>0) {
+
+		printf("Saldo disponible: %.2f\n",saldo);
+
+		printf("Ingrese el monto que desea retirar: \n");
+
+		scanf("%f",&montoretiro);
+
+		if (montoretiro<=saldo) {
+
+			printf("Monto a retirar: %.2f\n",montoretiro);
+
+			saldo = saldo-montoretiro;
+
+			printf("Retiro exitoso.\n");
+
+		} else {
+
+			printf("No es posible realizar el retiro.\n");
+
+		}
+
+	}
+
+	printf("Ya no tiene saldo disponible.\n");
+
+	return 0;
+
+}
+
+PSeInt :
+
+Algoritmo CajeroAutomatico
+
+    Definir saldo, montoRetiro Como Real
+
+    
+
+    saldo <- 1000.0
+
+    
+
+    Escribir "Bienvenido al Cajero Automatico"
+
+    
+
+    Mientras saldo > 0 Hacer
+
+        Escribir "Saldo disponible: ", saldo
+
+        Escribir "Ingrese el monto que desea retirar: "
+
+        Leer montoRetiro
+
+        
+
+        Si montoRetiro <= saldo Entonces
+
+            Escribir "Monto a retirar: ", montoRetiro
+
+            saldo <- saldo - montoRetiro
+
+            Escribir "Retiro exitoso."
+
+        Sino
+
+            Escribir "No es posible realizar el retiro."
+
+        FinSi
+
+    FinMientras
+
+    
+
+    Escribir "Ya no tiene saldo disponible."
+
+FinAlgoritmo
+
+BIBLIOTECA CON FOR Y WHILE
+
+C :
+
+#include <stdio.h>
+
+int main() {
+
+    int i;
+
+    int numLibros;
+
+    printf("Ingrese el numero de libros: ");
+
+    scanf("%i", &numLibros);
+
+    char titulos[numLibros][100];
+
+    char autores[numLibros][100];
+
+    int fecha[numLibros];
+
+    for (i = 0; i < numLibros; i++) {
+
+        printf("Libro %i:\n", i + 1);
+
+        printf("Titulo: ");
+
+        scanf(" %s", titulos[i]);
+
+        printf("Autor: ");
+
+        scanf(" %s", autores[i]);
+
+        printf("Fecha de publicacion: ");
+
+        scanf("%i", &fecha[i]);
+
+        printf("\n");
+
+    }
+
+    printf("Informacion de los libros:\n");
+
+    for (i = 0; i < numLibros; i++) {
+
+        printf("Libro %i:\n", i + 1);
+
+        printf("Titulo: %s\n", titulos[i]);
+
+        printf("Autor: %s\n", autores[i]);
+
+        printf("Fecha de publicacion: %i\n", fecha[i]);
+
+        printf("\n");
+
+    }
+
+    i = 0;
+
+	while (i < numLibros) {
+
+		printf("Libro %i:\n", i + 1);
+
+		printf("Titulo: %s\n", titulos[i]);
+
+		printf("Autor: %s\n", autores[i]);
+
+		printf("Fecha de publicacion: %i\n", fecha[i]);
+
+		printf("\n");
+
+		i = i + 1;
+
+	}
+
+    return 0;
+
+}
+
+PSeInt :
+
+Algoritmo Libros
+
+	
+
+    Definir i, numLibros Como Entero
+
+	Definir titulos, autores Como Caracter
+
+	Definir fecha Como Entero
+
+	
+
+    Escribir "Ingrese el numero de libros: "
+
+    Leer numLibros
+
+	
+
+    Dimension titulos[numLibros], autores[numLibros]
+
+    Dimension fecha[numLibros]
+
+    Para i <- 0 Hasta numLibros - 1 Con Paso 1 Hacer
+
+        Escribir "Libro ", i + 1, ":"
+
+        Escribir "Titulo: "
+
+        Leer titulos[i]
+
+        Escribir "Autor: "
+
+        Leer autores[i]
+
+        Escribir "Fecha de publicacion: "
+
+        Leer fecha[i]
+
+        Escribir ""
+
+    FinPara
+
+	
+
+    Escribir "Información de los libros:"
+
+	
+
+    Para i <- 0 Hasta numLibros - 1 Con Paso 1 Hacer
+
+        Escribir "Libro ", i + 1, ":"
+
+        Escribir "Titulo: ", titulos[i]
+
+        Escribir "Autor: ", autores[i]
+
+        Escribir "Fecha de publicacion: ", fecha[i]
+
+        Escribir ""
+
+    FinPara
+
+	
+
+    i <- 0
+
+    Mientras i < numLibros Hacer
+
+        Escribir "Libro ", i + 1, ":"
+
+        Escribir "Titulo: ", titulos[i]
+
+        Escribir "Autor: ", autores[i]
+
+        Escribir "Fecha de publicacion: ", fecha[i]
+
+        Escribir ""
+
+		
+
+        i <- i + 1
+
+    FinMientras
+
+	
+
+FinAlgoritmo
+
+LEER CANTIDAD DE ESTUDIANTES Y CALIFICACIONES
+
+C :
+
+#include <stdio.h>
+
+int main() {
+
+    float calif[100];
+
+    int i, j, nume, num_calificaciones;
+
+    char nombres[256][100];
+
+    float prom[100];
+
+    float sum_calif;
+
+    printf("Ingrese cuantos estudiantes va a evaluar.\n");
+
+    scanf("%i", &nume);
+
+    printf("Digite las calificaciones que se evaluan.\n");
+
+    scanf("%i", &num_calificaciones);
+
+    for (i = 0; i < nume; i += 1) {
+
+        printf("Ingrese el nombre del alumno no. %i: ", i + 1);
+
+        scanf("%s", nombres[i]);
+
+        sum_calif = 0;
+
+        for (j = 0; j < num_calificaciones; j += 1) {
+
+            printf("Ingrese la calificacion %i de %s: ", j + 1, nombres[i]);
+
+            scanf("%f", &calif[j]);
+
+            sum_calif = sum_calif + calif[j];
+
+        }
+
+        prom[i] = sum_calif / num_calificaciones;
+
+    }
+
+    printf("Nombre y promedio de los alumnos.\n");
+
+    for (i = 0; i < nume; i += 1) {
+
+        printf("%s\n", nombres[i]);
+
+        printf("%.2f\n", prom[i]);
+
+    }
+
+    return 0;
+
+}
+
+PSeInt :
+
+Algoritmo sin_titulo
+
+	Definir numE, i, j, num_calificaciones Como Entero
+
+	Definir sum_calif, prom, calif Como Real
+
+	Definir nombres Como Caracter
+
+	Escribir 'Ingrese cuantos estudiantes va a evaluar.'
+
+	Leer numE
+
+	Escribir 'Digite las calificaciones que se evaluan.'
+
+	Leer num_calificaciones
+
+	Dimension nombres[numE]
+
+	Dimension calif[num_calificaciones]
+
+	Dimension prom[numE]
+
+	Para i <- 0 Hasta numE -1 Con Paso 1 Hacer
+
+		Escribir 'Ingrese el nombre del alumno no. ', i + 1
+
+		Leer nombres[i]
+
+		sum_calif <- 0
+
+		Para j <- 0 Hasta num_calificaciones -1 Con Paso 1 Hacer
+
+			Escribir 'Ingrese la calificacion ', j + 1 ' de: ', nombres[i]
+
+			Leer calif[j]
+
+			sum_calif <- sum_calif + calif[j]
+
+		FinPara
+
+		prom[i] <- sum_calif / num_calificaciones
+
+	FinPara
+
+	Escribir 'Nombre y promedio de los alumnos.'
+
+	Para i <- 0 Hasta numE -1 Con Paso 1 Hacer
+
+		Escribir nombres[i]
+
+		Escribir prom[i]
+
+	FinPara
+
+FinAlgoritmo
+
+DIMENSIONES
+
+C :
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+int main() {
+
+    int numE, i;
+
+    char respuesta;
+
+    while (1) {
+
+        printf("Ingrese el número de estudiantes a registrar: ");
+
+        scanf("%i", &numE);
+
+        char nombres[numE][50];
+
+        int edades[numE];
+
+        char sexo[numE][10];
+
+        int sem[numE];
+
+        float Pro[numE];
+
+        printf("Ingrese los datos de los estudiantes:\n");
+
+        for (i = 0; i < numE; i++) {
+
+            printf("Alumno %d:\n", i + 1);
+
+            printf("Nombre: ");
+
+            scanf("%s", nombres[i]);
+
+            printf("Edad: ");
+
+            scanf("%i", &edades[i]);
+
+            printf("Sexo: ");
+
+            scanf("%s", sexo[i]);
+
+            printf("Semestre: ");
+
+            scanf("%i", &sem[i]);
+
+            printf("Promedio: ");
+
+            scanf("%f", &Pro[i]);
+
+        }
+
+        printf("\nLos datos de los alumnos registrados son:\n");
+
+        for (i = 0; i < numE; i++) {
+
+            printf("\nAlumno %d:\n", i + 1);
+
+            printf("Nombre: %s\n", nombres[i]);
+
+            printf("Edad: %i\n", edades[i]);
+
+            printf("Sexo: %s\n", sexo[i]);
+
+            printf("Semestre: %i\n", sem[i]);
+
+            printf("Promedio: %f\n", Pro[i]);
+
+        }
+
+        printf("\nDesea salir del programa? (s/n): ");
+
+        scanf(" %c", &respuesta);
+
+        if (respuesta == 's' || respuesta == 'S') {
+
+            printf("Saliendo del programa...\n");
+
+            break;
+
+        }
+
+    }
+
+    return 0;
+
+}
+
+PSeInt: 
+
+Algoritmo sin_titulo
+
+    Definir nombre, sexo Como caracter
+
+    Definir edades, semestre, promedio Como Entero
+
+    Definir i, n Como Entero
+
+    Definir respuesta Como Caracter
+
+	
+
+    respuesta <- 's'
+
+	
+
+    Dimension nombre[1000], edades[1000], sexo[1000], semestre[1000], promedio[1000]
+
+	
+
+    Mientras respuesta = 's' Hacer
+
+        Escribir "¿Cuántos estudiantes ingresará?"
+
+        Leer n
+
+		
+
+        Para i <- 1 Hasta n Con Paso 1 Hacer
+
+            nombre[i] <- " "
+
+            edades[i] <- 0
+
+			sexo[i] <- " "
+
+			semestre[i] <- 0
+
+			promedio[i] <- 0
+
+        FinPara
+
+		
+
+        Para i <- 1 Hasta n Con Paso 1 Hacer
+
+            Escribir "Ingrese el nombre del estudiante ", i
+
+            Leer nombre[i]
+
+			
+
+            Escribir "Ingrese la edad de ", nombre[i]
+
+            Leer edades[i]
+
+			
+
+			Escribir "Ingrese el sexo de ", nombre[i]
+
+            Leer sexo[i]
+
+			
+
+            Escribir "Ingrese el semestre de ", nombre[i]
+
+            Leer semestre[i]
+
+			
+
+            Escribir "Ingrese el promedio de ", nombre[i]
+
+            Leer promedio[i]
+
+        FinPara
+
+		
+
+        Escribir "Estudiantes ingresados"
+
+        Para i <- 1 Hasta n Con Paso 1 Hacer
+
+            Escribir "Estudiante ", i
+
+            Escribir "Nombre: ", nombre[i]
+
+            Escribir "Edad: ", edades[i]
+
+			Escribir "Sexo: " sexo[i]
+
+			Escribir "Semestre: ", semestre[i]
+
+			Escribir "Promedio: ", promedio[i]
+
+            Escribir ""
+
+        FinPara
+
+        
+
+        Escribir "¿Desea continuar registrando estudiantes? (s/n)"
+
+        Leer respuesta
+
+		
+
+		Si respuesta = 's' o respuesta = 'S' Entonces
+
+			Escribir "Saliendo del programa..."
+
+		FinSi
+
+    FinMientras
+
+FinAlgoritmo
+
+DIAS A LA SEMSANA
+
+C : 
+
+#include<stdio.h>
+
+int main() {
+
+	int hrstrabajadas;
+
+	int i;
+
+	float salariodiario;
+
+	float salariototal;
+
+	int tttrabajadores;
+
+	printf("Bienvenido al sistema de cálculo de salarios de la empresa\n");
+
+	printf("Ingrese el número de trabajadores:\n");
+
+	scanf("%i",&tttrabajadores);
+
+	printf("Ingrese el salario diario por trabajador:\n");
+
+	scanf("%f",&salariodiario);
+
+	for (i=1;i<=tttrabajadores;i+=1) {
+
+		printf("Trabajador %i\n",i);
+
+		printf("Ingrese el número de horas extra trabajadas:\n");
+
+		scanf("%i",&hrstrabajadas);
+
+		salariototal = salariodiario+(hrstrabajadas*(salariodiario*0.15));
+
+		printf("Salario Total:%f\n",salariototal);
+
+		printf("\n");
+
+	}
+
+	return 0;
+
+}
+
+PSeInt :
+
+Algoritmo EmpresaTrabajadores
+
+	
+
+	Definir ttTrabajadores, hrsTrabajadas Como Entero
+
+	Definir salarioDiario, salarioTotal Como Real
+
+	Definir i Como Entero
+
+	
+
+	Escribir "Bienvenido al sistema de cálculo de salarios de la empresa"
+
+	
+
+	Escribir "Ingrese el número de trabajadores:"
+
+	Leer ttTrabajadores
+
+	
+
+	Escribir "Ingrese el salario diario por trabajador:"
+
+	Leer salarioDiario
+
+	
+
+	Para i = 1 Hasta ttTrabajadores Con Paso 1 Hacer
+
+		Escribir "Trabajador ", i
+
+		
+
+		Escribir "Ingrese el número de horas extra trabajadas:"
+
+		Leer hrsTrabajadas
+
+		
+
+		salarioTotal = salarioDiario + (hrsTrabajadas * (salarioDiario * 0.15))
+
+		
+
+		Escribir "Salario Total:", salarioTotal
+
+		Escribir ""
+
+		
+
+	FinPara
+
+FinAlgoritmo
