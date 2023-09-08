@@ -1,0 +1,23 @@
+import javax.swing.JOptionPane;
+
+
+public class Main {
+    public static void main(String[] args) {
+        int nElementos;
+        
+        nElementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de elementos"));
+
+        char[] letras = new char[nElementos];
+
+        JOptionPane.showMessageDialog(null, "Digite los elementos del arreglo");
+
+        String resultado = "Los caracteres del arreglo son: ";
+        for(int i = 0; i < nElementos; i++) {
+            String input = JOptionPane.showInputDialog((i + 1) + " Digite un carácter: ");
+            letras[i] = input.charAt(0);
+            resultado += letras[i] + " ";
+        }
+
+        JOptionPane.showMessageDialog(null, resultado);
+    }
+}
