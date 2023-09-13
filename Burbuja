@@ -1,0 +1,56 @@
+package burbuja;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+public class Burbuja {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner(System.in);
+
+        int a[], b[], c[];
+
+        a = new int[10];
+        b = new int[10];
+        c = new int[20];
+
+        System.out.println("Ingresa el primer arreglo.");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println((i + 1) + ". Digite un numero");
+            a[i] = entrada.nextInt();
+        }
+        
+        System.out.println("Digite el segundo arreglo.");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Digite un numero.");
+            b[i] = entrada.nextInt();
+        }
+
+        int j = 0;
+
+        for (int i = 0; i < 10; i++) {
+            c[j] = a[i];
+            j++;
+            c[j] = b[i];
+            j++;
+        }
+
+        for (int i = 0; i < 19; i++) {
+            for (j = 0; j < 19 - i; j++) {
+                if (c[j] > c[j + 1]) {
+                    int temp = c[j];
+                    c[j] = c[j + 1];
+                    c[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("El tercer arreglo ordenado es: "); 
+        for (int i = 0; i < 20; i++) {
+            System.out.println(c[i]);
+        }
+    }
+}
