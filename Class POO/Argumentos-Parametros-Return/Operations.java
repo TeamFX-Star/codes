@@ -13,12 +13,12 @@ public class Operations {
     }
     
     public float Multiplicacion(float a, float b) {
-        float resta = a * b;
-        return resta;
+        float mult = a * b;
+        return mult;
     }
     
     public float Division(float a, float b) {
-        float resta = a / b;
-        return resta;
+        float div = a / b;
+        return div;
     }
 }
