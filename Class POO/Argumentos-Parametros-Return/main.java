@@ -1,7 +1,7 @@
 package ArgumentosYParametros;
 import javax.swing.JOptionPane;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
 
         float n1 = Float.parseFloat(JOptionPane.showInputDialog("Ingrese el numero 1"));
@@ -16,4 +16,3 @@ public class main {
         
     }
 }
-
