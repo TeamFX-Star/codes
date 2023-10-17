@@ -1,7 +1,13 @@
-public class Main {
+package dsds;
+import javax.swing.JOptionPane;
+
+public class main {
     public static void main(String[] args) {
-        // Crear una instancia de la clase Metodos utilizando el constructor
-        Metodos metodos = new Metodos();
-        metodos.mostrarDatos();
+        String nombre = JOptionPane.showInputDialog("Ingresa el nombre:");
+        int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la edad:"));
+
+        Metodos objeto = new Metodos(nombre, edad);
+        objeto.mostrarMenu();
     }
+
 }
